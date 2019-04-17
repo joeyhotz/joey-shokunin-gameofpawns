@@ -17,10 +17,10 @@ class Game {
         this.setPiece(piece, xy.x, xy.y);
       }
       xy = getCoords();
-    } while (!this.isPlaced(piece));
+    } while (!this.isPiecePlaced(piece));
   }
 
-  isPlaced(piece) {
+  isPiecePlaced(piece) {
     return !this.board.every(row => row.every(spot => spot !== piece));
   }
 
