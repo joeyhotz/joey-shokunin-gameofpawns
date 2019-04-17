@@ -12,11 +12,11 @@ class Game {
 
   placePiece(piece) {
     do {
-      let coords = getCoords();
-      if (this.isValidSpot(piece, coords.x, coords.y)) {
-        this.setPiece(piece, coords.x, coords.y);
+      let xy = getCoords();
+      if (this.isValidSpot(piece, xy.x, xy.y)) {
+        this.setPiece(piece, xy.x, xy.y);
       }
-      coords = getCoords();
+      xy = getCoords();
     } while (!this.isPlaced(piece));
   }
 
