@@ -1,16 +1,26 @@
 const { getAdjacentSpots } = require("./utils");
 
-const ifNotAdjacentToKing = (board, coords) => {
-  const adjacentSpots = getAdjacentSpots(coords);
-  const kingInAnyAdjacentSpots = adjacentSpots.some(spot => {
-    const spotContents = board[spot.x][spot.y];
-    return spotContents && spotContents.getName().toLowerCase() === "k";
-  });
-  return !kingInAnyAdjacentSpots;
+const ifSpotNotAdjacentToKing = (board, coords) => {
+  const notAdjacentToKing = !ifSpotAdjacentToPiece("k", board, coords);
+  return notAdjacentToKing;
 };
 
 const RulesFor = {
-  k: [ifNotAdjacentToKing]
+  k: [ifSpotNotAdjacentToKing]
+};
+
+const ifSpotAdjacentToPiece = (piece, board, coords) => {
+  const adjacentSpots = getAdjacentSpots(coords);
+  return isPieceAdjacent(piece, adjacentSpots, board);
+};
+
+const isPieceAdjacent = (piece, adjacentSpots, board) => {
+  return adjacentSpots.some(adjacentSpot => {
+    const spotContents = board[adjacentSpot.x][adjacentSpot.y];
+    const pieceIsAdjacent =
+      spotContents && spotContents.getPieceType() === piece;
+    return pieceIsAdjacent;
+  });
 };
 
 module.exports = { RulesFor };

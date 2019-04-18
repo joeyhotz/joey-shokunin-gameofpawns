@@ -18,6 +18,10 @@ class Piece {
     return this.displayName;
   }
 
+  getPieceType() {
+    return this.displayName.toLowerCase();
+  }
+
   markPlaced(coords) {
     this.placed = true;
     this.coords = coords;
