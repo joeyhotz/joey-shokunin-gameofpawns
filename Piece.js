@@ -1,6 +1,8 @@
+const { RulesFor } = require("./rules");
+
 class Piece {
-  constructor(rules, displayName) {
-    this.placeRules = rules;
+  constructor(displayName) {
+    this.placeRules = RulesFor[displayName.toLowerCase()];
     this.displayName = displayName;
     this.placed = false;
     this.coords = null;

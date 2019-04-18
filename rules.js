@@ -9,4 +9,8 @@ const ifNotAdjacentToKing = (board, coords) => {
   return !kingInAnyAdjacentSpots;
 };
 
-module.exports = { ifNotAdjacentToKing };
+const RulesFor = {
+  k: [ifNotAdjacentToKing]
+};
+
+module.exports = { RulesFor };
