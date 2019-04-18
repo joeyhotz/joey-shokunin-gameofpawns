@@ -38,7 +38,8 @@ class Board {
   }
 
   returnSpotDisplay(spot) {
-    return spot !== null ? ` ${spot.getName()} ` : " . ";
+    const spotDisplay = spot ? spot.getName() : ".";
+    return ` ${spotDisplay} `;
   }
 }
 
