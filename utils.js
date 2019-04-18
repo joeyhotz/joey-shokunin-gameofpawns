@@ -13,7 +13,7 @@ const generatePieces = () => {
 };
 
 const randomNum0To7 = () => {
-  return Math.floor(Math.random() * 7);
+  return Math.floor(Math.random() * 8);
 };
 
 const generateCoords = () => {
@@ -61,10 +61,15 @@ const filterOutSpotsOffTheBoard = spots => {
   return spots.filter(spot => spot.x >= 0 && spot.x <= 7 && spot.y >= 0 && spot.y <= 7);
 };
 
+const isInRow = (row, coords) => {
+  return coords.y === row;
+};
+
 module.exports = {
   generateCoords,
   newBoard,
   getAdjacentSpots,
   generatePieces,
-  stringifyBoard
+  stringifyBoard,
+  isInRow
 };

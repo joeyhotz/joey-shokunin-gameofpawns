@@ -10,7 +10,7 @@ class Piece {
   }
 
   canBePlaced(board, coords) {
-    const results = this.placeRules.map(ruleFunction => ruleFunction(board, coords));
+    const results = this.placeRules.map(ruleFunction => ruleFunction(board, coords, this));
     return results.every(val => val);
   }
 
@@ -18,13 +18,16 @@ class Piece {
     return this.type;
   }
 
-  getName() {
-    const isWhite = this.color === "w";
-    return isWhite ? this.getType().toUpperCase() : this.getType();
-  }
-
   getColor() {
     return this.color;
+  }
+
+  isWhite() {
+    return this.color === "w";
+  }
+
+  getName() {
+    return this.isWhite() ? this.getType().toUpperCase() : this.getType();
   }
 
   markPlaced(coords) {

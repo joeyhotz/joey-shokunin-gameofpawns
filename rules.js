@@ -1,14 +1,13 @@
-const { getAdjacentSpots } = require("./utils");
+const { getAdjacentSpots, isInRow } = require("./utils");
 
-const ifSpotNotAdjacentToKing = (board, coords) => {
+const ifSpotNotAdjacentToKing = (board, coords, _) => {
   const notAdjacentToKing = !ifSpotAdjacentToPiece("k", board, coords);
   return notAdjacentToKing;
 };
 
-const ifNotInPromotionRank = (_, coords) => {
-  const inTopRow = coords.y === 0;
-  const inBottomRow = coords.y === 7;
-  return !inTopRow && !inBottomRow;
+const ifNotInPromotionRank = (_, coords, piece) => {
+  const inPromotionRank = piece.isWhite() ? isInRow(0, coords) : isInRow(7, coords);
+  return !inPromotionRank;
 };
 
 const RulesFor = {
