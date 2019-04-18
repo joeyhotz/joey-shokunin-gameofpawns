@@ -12,7 +12,7 @@ const main = () => {
 
   game.placeAllPieces();
 
-  game.displayBoard();
+  game.outputBoard();
 };
 
 main();

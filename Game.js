@@ -36,14 +36,20 @@ class Game {
     this.board[x][y] = piece;
   }
 
-  outputBoard() {
-    return this.board.map(row =>
-      row.map(spot => (spot ? spot.getName() : "."))
-    );
+  stringifyBoard() {
+    let string = "";
+    for (let y = 0; y < this.board.length; y++) {
+      const row = this.board[y];
+      for (let x = 0; x < row.length; x++) {
+        string += row[x] !== null ? ` ${row[x].getName()} ` : " . ";
+      }
+      string += `\n`;
+    }
+    return string;
   }
 
-  displayBoard() {
-    console.log(this.outputBoard());
+  outputBoard() {
+    console.log(this.stringifyBoard());
   }
 }
 
