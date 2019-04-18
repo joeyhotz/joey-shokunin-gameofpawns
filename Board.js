@@ -1,5 +1,6 @@
 const { newBoard } = require("./utils");
 const newLine = "\n";
+const emptyString = "";
 
 class Board {
   constructor() {
@@ -20,7 +21,7 @@ class Board {
   }
 
   stringifyBoard() {
-    let boardString = "";
+    let boardString = emptyString;
     for (let y = 0; y < this.board.length; y++) {
       const row = this.board[y];
       boardString += this.returnRowSpotsDisplay(row) + newLine;
