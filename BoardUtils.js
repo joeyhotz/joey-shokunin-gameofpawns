@@ -1,6 +1,6 @@
 const newLine = "\n";
 
-class GameUtils {
+class BoardUtils {
   constructor() {}
 
   isPiecePlaced(board, piece) {
@@ -18,10 +18,6 @@ class GameUtils {
   placePiece(board, piece, x, y) {
     board[x][y] = piece;
     piece.markPlaced(x, y);
-  }
-
-  outputBoard(board) {
-    console.log(this.stringifyBoard(board));
   }
 
   stringifyBoard(board) {
@@ -47,4 +43,4 @@ class GameUtils {
   }
 }
 
-module.exports = new GameUtils();
+module.exports = new BoardUtils();

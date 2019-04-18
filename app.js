@@ -1,6 +1,5 @@
 const Game = require("./Game");
 const Piece = require("./Piece");
-const GameUtils = require("./GameUtils");
 
 const { ifNotAdjacentToKing } = require("./rules");
 

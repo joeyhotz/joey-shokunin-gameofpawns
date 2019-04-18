@@ -1,5 +1,5 @@
 const { generateCoords, newBoard } = require("./utils");
-const GameUtils = require("./GameUtils");
+const BoardUtils = require("./BoardUtils");
 
 class Game {
   constructor(pieces) {
@@ -15,20 +15,21 @@ class Game {
     do {
       const newCoords = generateCoords();
       if (
-        GameUtils.isValidSpotForPiece(
+        BoardUtils.isValidSpotForPiece(
           this.board,
           piece,
           newCoords.x,
           newCoords.y
         )
       ) {
-        GameUtils.placePiece(this.board, piece, newCoords.x, newCoords.y);
+        BoardUtils.placePiece(this.board, piece, newCoords.x, newCoords.y);
       }
-    } while (!GameUtils.isPiecePlaced(this.board, piece));
+    } while (!BoardUtils.isPiecePlaced(this.board, piece));
   }
 
   outputBoard() {
-    console.log(GameUtils.stringifyBoard(this.board));
+    const boardString = BoardUtils.stringifyBoard(this.board);
+    console.log(boardString);
   }
 
   getBoard() {
