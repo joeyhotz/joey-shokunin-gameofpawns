@@ -1,9 +1,9 @@
 const { generateCoords, newBoard } = require("./utils");
-const BoardUtils = require("./BoardUtils");
+const Board = require("./Board");
 
 class Game {
   constructor(pieces) {
-    this.board = newBoard();
+    this.board = new Board();
     this.pieces = pieces;
   }
 
@@ -14,21 +14,14 @@ class Game {
   performPlacePiece(piece) {
     do {
       const newCoords = generateCoords();
-      if (
-        BoardUtils.isValidSpotForPiece(
-          this.board,
-          piece,
-          newCoords.x,
-          newCoords.y
-        )
-      ) {
-        BoardUtils.placePiece(this.board, piece, newCoords.x, newCoords.y);
+      if (this.board.isValidSpotForPiece(piece, newCoords.x, newCoords.y)) {
+        this.board.placePiece(piece, newCoords.x, newCoords.y);
       }
-    } while (!BoardUtils.isPiecePlaced(this.board, piece));
+    } while (!this.board.isPiecePlaced(piece));
   }
 
   outputBoard() {
-    const boardString = BoardUtils.stringifyBoard(this.board);
+    const boardString = this.board.stringifyBoard();
     console.log(boardString);
   }
 
