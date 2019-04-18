@@ -1,10 +1,10 @@
-const { generateCoords } = require("./utils");
+const { generateCoords, generatePieces } = require("./utils");
 const Board = require("./Board");
 
 class Game {
-  constructor(pieces) {
+  constructor() {
     this.board = new Board();
-    this.pieces = pieces;
+    this.pieces = generatePieces();
   }
 
   placeAllPieces() {

@@ -7,16 +7,24 @@ class Board {
     this.board = newBoard();
   }
 
+  getSpot(coords) {
+    return this.board[coords.y][coords.x];
+  }
+
+  setSpot(piece, coords) {
+    this.board[coords.y][coords.x] = piece;
+  }
+
   isValidSpotForPiece(piece, coords) {
     return this.isFreeSpot(coords) && piece.canBePlaced(this.board, coords);
   }
 
   isFreeSpot(coords) {
-    return this.board[coords.x][coords.y] === null;
+    return this.getSpot(coords) === null;
   }
 
   setPieceDown(piece, coords) {
-    this.board[coords.x][coords.y] = piece;
+    this.setSpot(piece, coords);
     piece.markPlaced(coords);
   }
 

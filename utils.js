@@ -1,3 +1,14 @@
+const generatePieces = () => {
+  const Piece = require("./Piece");
+  const kingW = new Piece("K");
+  const kingB = new Piece("k");
+  const pawnsW = [1, 2, 3, 4, 5, 6, 7, 8].map(() => new Piece("P"));
+  const pawnsB = [1, 2, 3, 4, 5, 6, 7, 8].map(() => new Piece("p"));
+  const pawns = [...pawnsW, ...pawnsB];
+  const pieces = [kingW, kingB, ...pawns];
+  return pieces;
+};
+
 const randomNum0To7 = () => {
   return Math.floor(Math.random() * 7);
 };
@@ -23,5 +34,6 @@ const getAdjacentSpots = coords => {
 module.exports = {
   generateCoords,
   newBoard,
-  getAdjacentSpots
+  getAdjacentSpots,
+  generatePieces
 };

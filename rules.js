@@ -5,8 +5,15 @@ const ifSpotNotAdjacentToKing = (board, coords) => {
   return notAdjacentToKing;
 };
 
+const ifNotInPromotionRank = (_, coords) => {
+  const inTopRow = coords.y === 0;
+  const inBottomRow = coords.y === 7;
+  return !inTopRow && !inBottomRow;
+};
+
 const RulesFor = {
-  k: [ifSpotNotAdjacentToKing]
+  k: [ifSpotNotAdjacentToKing],
+  p: [ifNotInPromotionRank]
 };
 
 const ifSpotAdjacentToPiece = (piece, board, coords) => {
@@ -16,7 +23,7 @@ const ifSpotAdjacentToPiece = (piece, board, coords) => {
 
 const isPieceAdjacent = (piece, adjacentSpots, board) => {
   return adjacentSpots.some(adjacentSpot => {
-    const spotContents = board[adjacentSpot.x][adjacentSpot.y];
+    const spotContents = board[adjacentSpot.y][adjacentSpot.x];
     const pieceIsAdjacent = spotContents && spotContents.getPieceType() === piece;
     return pieceIsAdjacent;
   });
