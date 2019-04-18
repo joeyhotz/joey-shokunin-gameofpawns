@@ -17,8 +17,7 @@ const ifSpotAdjacentToPiece = (piece, board, coords) => {
 const isPieceAdjacent = (piece, adjacentSpots, board) => {
   return adjacentSpots.some(adjacentSpot => {
     const spotContents = board[adjacentSpot.x][adjacentSpot.y];
-    const pieceIsAdjacent =
-      spotContents && spotContents.getPieceType() === piece;
+    const pieceIsAdjacent = spotContents && spotContents.getPieceType() === piece;
     return pieceIsAdjacent;
   });
 };

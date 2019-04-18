@@ -9,9 +9,7 @@ class Piece {
   }
 
   canBePlaced(board, coords) {
-    return this.placeRules
-      .map(ruleFunction => ruleFunction(board, coords))
-      .every(val => val);
+    return this.placeRules.map(ruleFunction => ruleFunction(board, coords)).every(val => val);
   }
 
   getName() {
