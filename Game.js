@@ -1,4 +1,4 @@
-const { generateCoords, generatePieces } = require("./utils");
+const { generateCoords, generatePieces, stringifyBoard } = require("./utils");
 const Board = require("./Board");
 
 class Game {
@@ -25,12 +25,7 @@ class Game {
   }
 
   outputBoard() {
-    const boardString = this.board.stringifyBoard();
-    console.log(boardString);
-  }
-
-  getBoard() {
-    return this.board;
+    console.log(stringifyBoard(this.board));
   }
 }
 
