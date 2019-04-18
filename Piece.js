@@ -20,6 +20,10 @@ class Piece {
     this.placed = true;
     this.coords = { x, y };
   }
+
+  isPlaced() {
+    return this.placed;
+  }
 }
 
 module.exports = Piece;

@@ -6,10 +6,6 @@ class Board {
     this.board = newBoard();
   }
 
-  isPiecePlaced(piece) {
-    return !this.board.every(row => row.every(spot => spot !== piece));
-  }
-
   isValidSpotForPiece(piece, x, y) {
     return this.isFreeSpot(x, y) && piece.canBePlaced(x, y);
   }
@@ -18,7 +14,7 @@ class Board {
     return this.board[x][y] === null;
   }
 
-  placePiece(piece, x, y) {
+  setPieceDown(piece, x, y) {
     this.board[x][y] = piece;
     piece.markPlaced(x, y);
   }
