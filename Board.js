@@ -6,25 +6,24 @@ class Board {
     this.board = newBoard();
   }
 
-  isValidSpotForPiece(piece, x, y) {
-    return this.isFreeSpot(x, y) && piece.canBePlaced(x, y);
+  isValidSpotForPiece(piece, coords) {
+    return this.isFreeSpot(coords) && piece.canBePlaced(this.board, coords);
   }
 
-  isFreeSpot(x, y) {
-    return this.board[x][y] === null;
+  isFreeSpot(coords) {
+    return this.board[coords.x][coords.y] === null;
   }
 
-  setPieceDown(piece, x, y) {
-    this.board[x][y] = piece;
-    piece.markPlaced(x, y);
+  setPieceDown(piece, coords) {
+    this.board[coords.x][coords.y] = piece;
+    piece.markPlaced(coords);
   }
 
   stringifyBoard() {
     let boardString = "";
     for (let y = 0; y < this.board.length; y++) {
       const row = this.board[y];
-      boardString += this.returnRowSpotsDisplay(row);
-      boardString += newLine;
+      boardString += this.returnRowSpotsDisplay(row) + newLine;
     }
     return boardString;
   }

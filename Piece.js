@@ -6,9 +6,9 @@ class Piece {
     this.coords = null;
   }
 
-  canBePlaced(board, x, y) {
+  canBePlaced(board, coords) {
     return this.placeRules
-      .map(ruleFunction => ruleFunction(board, x, y))
+      .map(ruleFunction => ruleFunction(board, coords))
       .every(val => val);
   }
 
@@ -16,9 +16,9 @@ class Piece {
     return this.displayName;
   }
 
-  markPlaced(x, y) {
+  markPlaced(coords) {
     this.placed = true;
-    this.coords = { x, y };
+    this.coords = coords;
   }
 
   isPlaced() {

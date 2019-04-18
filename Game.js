@@ -18,9 +18,9 @@ class Game {
     } while (!piece.isPlaced());
   }
 
-  placePiece(piece, newCoords) {
-    if (this.board.isValidSpotForPiece(piece, newCoords.x, newCoords.y)) {
-      this.board.setPieceDown(piece, newCoords.x, newCoords.y);
+  placePiece(piece, coords) {
+    if (this.board.isValidSpotForPiece(piece, coords)) {
+      this.board.setPieceDown(piece, coords);
     }
   }
 

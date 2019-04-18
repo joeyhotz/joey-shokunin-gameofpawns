@@ -1,10 +1,8 @@
 const { getAdjacentSpots } = require("./utils");
 
-const ifNotAdjacentToKing = (board, x, y) => {
-  const adjacentSpots = getAdjacentSpots({ x, y });
+const ifNotAdjacentToKing = (board, coords) => {
+  const adjacentSpots = getAdjacentSpots(coords);
   return true;
 };
-
-const kingIsAdjacent = coords => {};
 
 module.exports = { ifNotAdjacentToKing };
