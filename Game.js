@@ -1,4 +1,5 @@
-const { getCoords, newBoard } = require("./utils");
+const { generateCoords, newBoard } = require("./utils");
+const GameUtils = require("./GameUtils");
 
 class Game {
   constructor(pieces) {
@@ -7,49 +8,31 @@ class Game {
   }
 
   placeAllPieces() {
-    this.pieces.forEach(piece => this.placePiece(piece));
+    this.pieces.forEach(piece => this.performPlacePiece(piece));
   }
 
-  placePiece(piece) {
+  performPlacePiece(piece) {
     do {
-      let xy = getCoords();
-      if (this.isValidSpot(piece, xy.x, xy.y)) {
-        this.setPiece(piece, xy.x, xy.y);
+      const newCoords = generateCoords();
+      if (
+        GameUtils.isValidSpotForPiece(
+          this.board,
+          piece,
+          newCoords.x,
+          newCoords.y
+        )
+      ) {
+        GameUtils.placePiece(this.board, piece, newCoords.x, newCoords.y);
       }
-      xy = getCoords();
-    } while (!this.isPiecePlaced(piece));
-  }
-
-  isPiecePlaced(piece) {
-    return !this.board.every(row => row.every(spot => spot !== piece));
-  }
-
-  isValidSpot(piece, x, y) {
-    return this.isFreeSpot(x, y) && piece.canBePlaced(this.board, x, y);
-  }
-
-  isFreeSpot(x, y) {
-    return this.board[x][y] === null;
-  }
-
-  setPiece(piece, x, y) {
-    this.board[x][y] = piece;
-  }
-
-  stringifyBoard() {
-    let string = "";
-    for (let y = 0; y < this.board.length; y++) {
-      const row = this.board[y];
-      for (let x = 0; x < row.length; x++) {
-        string += row[x] !== null ? ` ${row[x].getName()} ` : " . ";
-      }
-      string += `\n`;
-    }
-    return string;
+    } while (!GameUtils.isPiecePlaced(this.board, piece));
   }
 
   outputBoard() {
-    console.log(this.stringifyBoard());
+    console.log(GameUtils.stringifyBoard(this.board));
+  }
+
+  getBoard() {
+    return this.board;
   }
 }
 

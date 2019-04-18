@@ -2,7 +2,7 @@ const randomNum0To7 = () => {
   return Math.floor(Math.random() * 7);
 };
 
-const getCoords = () => {
+const generateCoords = () => {
   return { x: randomNum0To7(), y: randomNum0To7() };
 };
 
@@ -22,4 +22,8 @@ const getAdjacentSpots = coords => {
   );
 };
 
-module.exports = { getCoords, newBoard, getAdjacentSpots };
+module.exports = {
+  generateCoords,
+  newBoard,
+  getAdjacentSpots
+};

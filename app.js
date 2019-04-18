@@ -1,5 +1,6 @@
 const Game = require("./Game");
 const Piece = require("./Piece");
+const GameUtils = require("./GameUtils");
 
 const { ifNotAdjacentToKing } = require("./rules");
 
@@ -9,7 +10,6 @@ const main = () => {
   const pieces = [king1, king2];
 
   const game = new Game(pieces);
-
   game.placeAllPieces();
 
   game.outputBoard();
