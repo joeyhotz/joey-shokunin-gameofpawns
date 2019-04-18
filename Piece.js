@@ -1,9 +1,10 @@
 const { RulesFor } = require("./rules");
 
 class Piece {
-  constructor(displayName) {
-    this.placeRules = RulesFor[displayName.toLowerCase()];
-    this.displayName = displayName;
+  constructor(type, color) {
+    this.placeRules = RulesFor[type];
+    this.type = type;
+    this.color = color;
     this.placed = false;
     this.coords = null;
   }
@@ -13,12 +14,17 @@ class Piece {
     return results.every(val => val);
   }
 
-  getName() {
-    return this.displayName;
+  getType() {
+    return this.type;
   }
 
-  getPieceType() {
-    return this.displayName.toLowerCase();
+  getName() {
+    const isWhite = this.color === "w";
+    return isWhite ? this.getType().toUpperCase() : this.getType();
+  }
+
+  getColor() {
+    return this.color;
   }
 
   markPlaced(coords) {

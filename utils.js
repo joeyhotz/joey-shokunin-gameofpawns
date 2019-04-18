@@ -3,10 +3,10 @@ const emptyString = "";
 
 const generatePieces = () => {
   const Piece = require("./Piece");
-  const kingW = new Piece("K");
-  const kingB = new Piece("k");
-  const pawnsW = [1, 2, 3, 4, 5, 6, 7, 8].map(() => new Piece("P"));
-  const pawnsB = [1, 2, 3, 4, 5, 6, 7, 8].map(() => new Piece("p"));
+  const kingW = new Piece("k", "w");
+  const kingB = new Piece("k", "b");
+  const pawnsW = [1, 2, 3, 4, 5, 6, 7, 8].map(() => new Piece("p", "w"));
+  const pawnsB = [1, 2, 3, 4, 5, 6, 7, 8].map(() => new Piece("p", "b"));
   const pawns = [...pawnsW, ...pawnsB];
   const pieces = [kingW, kingB, ...pawns];
   return pieces;
