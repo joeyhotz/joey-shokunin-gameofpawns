@@ -40,7 +40,7 @@ const getPieceTypeAndAmount = (i, pieceTypes, pieceTypesAndAmounts) => {
 };
 
 const generatePiecesForPieceType = (amount, pieceType, color) => {
-  const Piece = require("./Piece");
+  const Piece = require("./piece");
   let pieces = [];
   for (let x = 0; x < amount; x++) {
     pieces.push(new Piece(pieceType, color));

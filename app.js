@@ -1,4 +1,5 @@
-const Game = require("./Game");
+const Game = require("./game");
+const { generatePieces } = require("./utils");
 
 const main = () => {
   const args = process.argv.slice(2);
