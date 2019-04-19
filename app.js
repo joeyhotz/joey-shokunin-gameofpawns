@@ -1,11 +1,9 @@
 const Game = require("./game");
-const { generatePieces } = require("./utils");
 
 const main = () => {
   const args = process.argv.slice(2);
 
-  const pieces = generatePieces();
-  const game = new Game(pieces);
+  const game = new Game();
   game.placeAllPieces();
 
   if (args[0] === "--grid") {
