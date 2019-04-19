@@ -5,7 +5,7 @@
 > ./go.sh --grid
 
 #### Challenge notes:
-```
+
 **Purpose**
 
 Generate a random chess position as an 8x8 grid or in FEN format. The position does not have to be realistic, but it must follow these rules:
@@ -34,4 +34,3 @@ Your solution should be runnable by a Go script that takes the type of output as
 3Q2b1/8/R2b2r1/4q2K/4P3/1BkP4/1n6/3N4/ w - - 0 1
 
 Note: with no flags, the solution should default to producing a FEN formatted result.  Any other type of input should generate an error.
-```
