@@ -1,24 +1,27 @@
 const newLine = "\n";
 const emptyString = "";
 
-const generatePieces = () => {
-  const pieceDictionary = {
-    w: { k: 1, q: randomNum0To(1), p: randomNum0To(8), r: randomNum0To(2), n: randomNum0To(2), b: randomNum0To(2) },
-    b: { k: 1, q: randomNum0To(1), p: randomNum0To(8), r: randomNum0To(2), n: randomNum0To(2), b: randomNum0To(2) }
-  };
+const randomNum0To = number => {
+  return Math.floor(Math.random() * (number + 1));
+};
 
+const pieceDictionary = {
+  w: { k: 1, q: randomNum0To(1), p: randomNum0To(8), r: randomNum0To(2), n: randomNum0To(2), b: randomNum0To(2) },
+  b: { k: 1, q: randomNum0To(1), p: randomNum0To(8), r: randomNum0To(2), n: randomNum0To(2), b: randomNum0To(2) }
+};
+
+const generatePieces = () => {
   const colors = Object.keys(pieceDictionary);
   let pieces = [];
   for (let x = 0; x < colors.length; x++) {
     const color = colors[x];
-    const piecesAndCount = pieceDictionary[color];
-    const pieceTypes = Object.keys(piecesAndCount);
+    const pieceTypesAndAmounts = pieceDictionary[color];
+    const pieceTypes = Object.keys(pieceTypesAndAmounts);
     for (let c = 0; c < pieceTypes.length; c++) {
       const pieceType = pieceTypes[c];
-      pieces = [...pieces, ...generateXPiecesofYType(piecesAndCount[pieceType], pieceType, color)];
+      pieces = [...pieces, ...generateXPiecesofYType(pieceTypesAndAmounts[pieceType], pieceType, color)];
     }
   }
-
   return pieces;
 };
 
@@ -29,10 +32,6 @@ const generateXPiecesofYType = (number, pieceType, color) => {
     pieces.push(new Piece(pieceType, color));
   }
   return pieces;
-};
-
-const randomNum0To = number => {
-  return Math.floor(Math.random() * (number + 1));
 };
 
 const generateCoords = () => {
