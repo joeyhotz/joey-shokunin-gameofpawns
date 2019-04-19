@@ -5,6 +5,7 @@ const main = () => {
 
   const game = new Game();
   game.placeAllPieces();
+
   if (args[0] === "--grid") {
     game.outputGrid();
     return;

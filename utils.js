@@ -15,15 +15,22 @@ const generatePieces = () => {
   let pieces = [];
   for (let x = 0; x < colors.length; x++) {
     const color = colors[x];
-    const pieceTypesAndAmountsForColor = pieceDictionary[color];
-    const pieceTypesForColor = Object.keys(pieceTypesAndAmountsForColor);
-    for (let i = 0; i < pieceTypesForColor.length; i++) {
-      const { pieceType, amount } = getPieceTypeAndAmount(i, pieceTypesForColor, pieceTypesAndAmountsForColor);
-      const piecesForType = generatePiecesForPieceTypeWithAmount(amount, pieceType, color);
-      pieces = pieces.concat(piecesForType);
-    }
+    const piecesForColor = getPiecesForColor(color);
+    pieces = pieces.concat(piecesForColor);
   }
   return pieces;
+};
+
+const getPiecesForColor = color => {
+  let piecesForColor = [];
+  const pieceTypesAndAmountsForColor = pieceDictionary[color];
+  const pieceTypesForColor = Object.keys(pieceTypesAndAmountsForColor);
+  for (let i = 0; i < pieceTypesForColor.length; i++) {
+    const { pieceType, amount } = getPieceTypeAndAmount(i, pieceTypesForColor, pieceTypesAndAmountsForColor);
+    const piecesForType = generatePiecesForPieceTypeWithAmount(amount, pieceType, color);
+    piecesForColor = piecesForColor.concat(piecesForType);
+  }
+  return piecesForColor;
 };
 
 const getPieceTypeAndAmount = (i, pieceTypes, pieceTypesAndAmounts) => {
