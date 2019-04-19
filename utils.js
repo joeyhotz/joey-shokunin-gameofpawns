@@ -1,6 +1,12 @@
 const newLine = "\n";
 const emptyString = "";
 
+const getDisplayTypeFromArgs = () => {
+  const args = process.argv.slice(2);
+  const displayType = args[0];
+  return displayType;
+};
+
 const randomNum0To = number => {
   return Math.floor(Math.random() * (number + 1));
 };
@@ -117,5 +123,6 @@ module.exports = {
   generatePieces,
   stringifyBoard,
   isInRow,
-  ifSpotAdjacentToPiece
+  ifSpotAdjacentToPiece,
+  getDisplayTypeFromArgs
 };

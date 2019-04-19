@@ -1,11 +1,11 @@
 const Game = require("./game");
+const { getDisplayTypeFromArgs } = require("./utils");
 
 const main = () => {
-  const args = process.argv.slice(2);
-  const displayType = args[0];
-
   const game = new Game();
   game.placeAllPieces();
+
+  const displayType = getDisplayTypeFromArgs();
 
   if (displayType === "--grid") {
     game.outputGrid();
