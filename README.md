@@ -21,6 +21,7 @@ Your code should be able to generate a reasonably representative sample of all p
 Your solution should be runnable by a Go script that takes the type of output as a flag.  E.g., 
 
 ./go.sh --grid // should produce the output as an 8x8 grid...
+```
  .  .  .  Q  .  .  b  . 
  .  .  .  .  .  .  .  . 
  R  .  .  b  .  .  r  . 
@@ -29,8 +30,11 @@ Your solution should be runnable by a Go script that takes the type of output as
  .  B  k  P  .  .  .  . 
  .  n  .  .  .  .  .  . 
  .  .  .  N  .  .  .  . 
+ ```
  
 ./go.sh --fen // should produce the output as a FEN record...
+```
 3Q2b1/8/R2b2r1/4q2K/4P3/1BkP4/1n6/3N4/ w - - 0 1
+```
 
 Note: with no flags, the solution should default to producing a FEN formatted result.  Any other type of input should generate an error.
