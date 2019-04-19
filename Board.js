@@ -1,4 +1,7 @@
-const { newBoard } = require("./utils");
+const { newBoard, returnRowSpotsDisplay } = require("./utils");
+
+const newLine = "\n";
+const emptyString = "";
 
 class Board {
   constructor() {
@@ -24,6 +27,15 @@ class Board {
   setPieceDown(piece, coords) {
     this.setSpot(piece, coords);
     piece.markPlaced(coords);
+  }
+
+  stringify() {
+    let boardString = emptyString;
+    for (let y = 0; y < this.grid.length; y++) {
+      const row = this.grid[y];
+      boardString += returnRowSpotsDisplay(row) + newLine;
+    }
+    return boardString;
   }
 }
 

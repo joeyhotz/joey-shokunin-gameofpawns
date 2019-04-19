@@ -1,6 +1,3 @@
-const newLine = "\n";
-const emptyString = "";
-
 const getDisplayTypeFromArgs = () => {
   const args = process.argv.slice(2);
   const displayType = args[0];
@@ -72,16 +69,6 @@ const getAdjacentSpots = coords => {
   return filterOutSpotsOffTheBoard(spots);
 };
 
-const stringifyBoard = board => {
-  const grid = board.grid;
-  let boardString = emptyString;
-  for (let y = 0; y < grid.length; y++) {
-    const row = grid[y];
-    boardString += returnRowSpotsDisplay(row) + newLine;
-  }
-  return boardString;
-};
-
 const returnRowSpotsDisplay = row => {
   let string = "";
   for (let x = 0; x < row.length; x++) {
@@ -121,7 +108,7 @@ module.exports = {
   newBoard,
   getAdjacentSpots,
   generatePieces,
-  stringifyBoard,
+  returnRowSpotsDisplay,
   isInRow,
   ifSpotAdjacentToPiece,
   getDisplayTypeFromArgs

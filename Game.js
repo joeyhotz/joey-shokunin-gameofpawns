@@ -25,7 +25,7 @@ class Game {
   }
 
   outputGrid() {
-    console.log(stringifyBoard(this.board));
+    console.log(this.board.stringify());
   }
 }
 
