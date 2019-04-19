@@ -12,7 +12,11 @@ const ifNotInPromotionRank = (_, coords, piece) => {
 
 const RulesFor = {
   k: [ifSpotNotAdjacentToKing],
-  p: [ifNotInPromotionRank]
+  p: [ifNotInPromotionRank],
+  r: [],
+  n: [],
+  b: [],
+  q: []
 };
 
 const ifSpotAdjacentToPiece = (piece, board, coords) => {
