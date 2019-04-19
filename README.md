@@ -1,6 +1,8 @@
 # April Challenge Submission: Game of Pawns
 ### This is my entry to the ThoughtWorks Shokunin April Challenge.
 
+_Yes, I didn't use TDD. Sorry._
+
 #### Run the code by typing into your terminal:
 > ./go.sh --grid
 
